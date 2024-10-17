@@ -1,10 +1,3 @@
-# -------------------------------------------------------------------------------
-# Copyright (c) 2024. 挥杯劝, Inc. All Rights Reserved
-# @作者         : 挥杯劝(Huibq)
-# @邮件         : huibq120@gmail.com
-# @文件         : TrojanLinks - Telegram_bot.py
-# @创建时间     : 2024/01/17 8:20
-# -------------------------------------------------------------------------------
 from datetime import datetime
 import requests
 
