@@ -12,7 +12,7 @@ def send_message(chat_id, text, bot_token):
 if __name__ == '__main__':
     chat_id = ''
     bot_token = ''
-    message = datetime.now().strftime("%Y年%m月%d日%H:%M:%S") + '\n' + 'Trojan订阅已更新：' + '\n' + 'https://raw.staticdn.net/mfbpn/TrojanLinks/master/links/ss_with_plugin'
+    message = datetime.now().strftime("%Y年%m月%d日%H:%M:%S") + '\n' + 'Trojan订阅已更新：' + '\n' + 'https://raw.staticdn.net/mfbpn/sublink/master/links/ss_with_plugin'
     send_message(chat_id, message, bot_token)
 
 
