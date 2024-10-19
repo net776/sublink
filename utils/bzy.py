@@ -38,21 +38,31 @@ if __name__ == '__main__':
     key_bytes = key_text.encode('utf-8')
     iv_bytes = iv_text.encode('utf-8')
     session = requests.Session()
-    url10 = 'https://gitee.com/darkSuperman/lazy/raw/master/hostdef.json'
+    # apiurl0 = 'https://gitee.com/darkSuperman/lazy/raw/master/hostdef.json'
+    apiurl0 = os.environ['bzy_url0']
     headers10 = {
-        'User-Agent': 'okhttp/4.10.0',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
         'Connection': 'Keep-Alive',
         'Accept-Encoding': 'gzip'
     }
-    apiurl = requests.get(url10, headers=headers10)
+    apiurl = requests.get(apiurl0, headers=headers10).text
     print(apiurl)
+    
+    apiurl1=parse.urljoin(apiurl, os.environ['bzy_url']) 
+    apiurl2=parse.urljoin(apiurl, os.environ['bzy_url2'])
+    apiurl3=parse.urljoin(apiurl, os.environ['bzy_url3'])
+    
+    print(apiurl1)
+    print(apiurl2)
+    print(apiurl3)
+    
     headers = {
         'User-Agent': 'Octopus_Android',
         'Connection': 'Keep-Alive',
         'Accept-Encoding': 'gzip',
         'Content-Type': 'application/x-www-form-urlencoded'
     }
-    url = os.environ['bzy_url']
+    url = apiurl1
     params = {
         'phoneNumber': uuid,
         'password': '123456',
@@ -63,7 +73,7 @@ if __name__ == '__main__':
     }
 
     token = session.post(url, headers=headers, params=params).json().get("userid")
-    url2 = os.environ['bzy_url2']
+    url2 = apiurl2
     params2 = {
         'phoneNumber': aes_encrypt(key_bytes, iv_bytes, uuid),
         'password': '255A42F2A6863798DBB392033F9D2FD7',
@@ -77,7 +87,7 @@ if __name__ == '__main__':
     response3 = requests.post(url2, headers=headers2, params=params2)
     phToken  = response3.json().get("data").get("phToken")
     token = response3.json().get("data").get("vpnToken")
-    url3 = os.environ['bzy_url3']
+    url3 = apiurl3
     params3 = {
         'phToken': phToken,
         'phoneNumber': uuid
