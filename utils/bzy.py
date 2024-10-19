@@ -38,6 +38,14 @@ if __name__ == '__main__':
     key_bytes = key_text.encode('utf-8')
     iv_bytes = iv_text.encode('utf-8')
     session = requests.Session()
+    url10 = 'https://gitee.com/darkSuperman/lazy/raw/master/hostdef.json'
+    headers10 = {
+        'User-Agent': 'okhttp/4.10.0',
+        'Connection': 'Keep-Alive',
+        'Accept-Encoding': 'gzip'
+    }
+    apiurl = requests.get(url10, headers=headers10)
+    print(apiurl)
     headers = {
         'User-Agent': 'Octopus_Android',
         'Connection': 'Keep-Alive',
