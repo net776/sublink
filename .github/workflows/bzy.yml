@@ -34,7 +34,7 @@ jobs:
         pip install -r ./utils/requirements2.txt
     - name: 执行任务
       env:
-        trojan_url: ${{secrets.trojan_url}}
+        bzy_url0: ${{secrets.bzy_url0}}
         bot_token: ${{secrets.bot_token}}
         chat_id: ${{secrets.chat_id}}
         bzy_url1: ${{secrets.bzy_url1}}
