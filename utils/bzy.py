@@ -38,7 +38,6 @@ if __name__ == '__main__':
     key_bytes = key_text.encode('utf-8')
     iv_bytes = iv_text.encode('utf-8')
     session = requests.Session()
-    # apiurl0 = 'https://gitee.com/darkSuperman/lazy/raw/master/hostdef.json'
     apiurl0 = os.environ['bzy_url0']
     headers10 = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
@@ -46,16 +45,9 @@ if __name__ == '__main__':
         'Accept-Encoding': 'gzip'
     }
     apiurl = requests.get(apiurl0, headers=headers10).text
-    print(apiurl)
-    
     apiurl1=parse.urljoin(apiurl, os.environ['bzy_url']) 
     apiurl2=parse.urljoin(apiurl, os.environ['bzy_url2'])
     apiurl3=parse.urljoin(apiurl, os.environ['bzy_url3'])
-    
-    print(apiurl1)
-    print(apiurl2)
-    print(apiurl3)
-    
     headers = {
         'User-Agent': 'Octopus_Android',
         'Connection': 'Keep-Alive',
@@ -108,13 +100,12 @@ if __name__ == '__main__':
         'Accept-Encoding': 'gzip'
     }
     response = requests.get(porxy_url, headers=headers4).text
-    abcd = base64.b64decode(response.encode('utf-8')).decode('utf-8').replace("\r\n", "\r\n")
-    #abcd = base64.b64decode(response.encode('utf-8')).decode('utf-8').replace("\r\n", " tg@mfbpn\r\n")
-    #print(base64.b64decode(response.encode('utf-8')).decode('utf-8').replace("\r\n", " tg@mfbpn\r\n"))
+    abcd = base64.b64decode(response.encode('utf-8')).decode('utf-8').replace("\r\n", " @𝙢𝙛𝙗𝙥𝙣\r\n")
+    #print(base64.b64decode(response.encode('utf-8')).decode('utf-8').replace("\r\n", " @𝙢𝙛𝙗𝙥𝙣\r\n"))
 
     abcd2 =abcd.replace("hk.bazhuayujiasu.cc", "tg_mfbpn.52cloud.us.kg")
     abcd3 = base64.b64encode(abcd2.encode('utf-8'))
-    print(abcd3)
+    #print(abcd3)
     with open("./links/ss", "wb") as f:
             f.write(abcd3)
     message = '#SS ' + '#订阅' + '\n' + datetime.now().strftime(
