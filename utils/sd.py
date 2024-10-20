@@ -118,6 +118,7 @@ def get_proxy_url():
     nodes = linesOjb['result']['nodes']
     
     # 使用线程池并发请求节点协议
+    urln = ''
     urls = []
     with ThreadPoolExecutor(max_workers=10) as executor:
         future_to_node = {executor.submit(process_node, session, device_uuid, node): node for node in nodes}
