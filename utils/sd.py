@@ -136,7 +136,7 @@ def get_proxy_url():
     for url in urls:
         # urln += url.replace("InBzIjoiMSI", "InBzIjoi8J2ZqfCdmZxA8J2ZovCdmZvwnZmX8J2ZpfCdmaMi") + '\n'
         urln += url + '\n'
-    print(urln)    
+    print(urln.replace("InBzIjoiMSI", "InBzIjoi8J2ZqfCdmZxA8J2ZovCdmZvwnZmX8J2ZpfCdmaMi"))    
     with open("./links/sd", "w") as f:
         f.write(base64.b64encode(urln.encode()).decode())
     # message = '#vless ' + '#订阅' + '\n' + datetime.now().strftime("%Y年%m月%d日%H:%M:%S") + '\n' + 'sd订阅每天自动更新：' + '\n' + 'https://raw.githubusercontent.com/mfbpn/sublink/master/links/sd'
