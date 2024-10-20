@@ -34,7 +34,7 @@ jobs:
         pip install -r ./utils/requirements2.txt
     - name: 执行任务
       env:
-        skr_a: ${{secrets.skr_a}}
+        sd_key: ${{secrets.sd_key}}
         skr_b: ${{secrets.skr_b}}
         skr_c: ${{secrets.skrp_c}}
         skr_d: ${{secrets.skr_d}}
