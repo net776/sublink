@@ -45,7 +45,7 @@ def prepare_headers(session, device_uuid):
         "h-language": "CN"
     }
 
-    key = iv = "ubje0xtjWTpZyGTV"
+    key = iv = os.environ['sd_key']
     encrypted_header = encrypt_aes(json.dumps(header_data), key, iv)
     return {
         "jOlaACOrIfkemD12xzNwxjNSijWwyzncvde": encrypted_header
