@@ -7,7 +7,7 @@ import os
 from Crypto.Cipher import AES
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta
-
+from Telegram_bot import send_message
 # 手动填充函数 (PKCS7填充)
 def manual_pad(data, block_size=16):
     pad_length = block_size - (len(data) % block_size)
@@ -132,7 +132,10 @@ def get_proxy_url():
     # 输出所有解密后的URL
     for url in urls:
         print(url)
-    
+    # with open("./links/skr", "w") as f:
+    #     f.write(base64.b64encode(skr.encode()).decode())
+    # message = '#ss ' + '#订阅' + '\n' + datetime.now().strftime("%Y年%m月%d日%H:%M:%S") + '\n' + 'skr订阅每天自动更新：' + '\n' + 'https://raw.githubusercontent.com/mfbpn/TrojanLinks/master/links/skr'
+    # send_message(os.environ['chat_id'], message, os.environ['bot_token'])
     # 输出节点总数(中文)
     print(f"共{len(nodes)}个节点")
 
