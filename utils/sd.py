@@ -134,12 +134,12 @@ def get_proxy_url():
     for url in urls:
         urln += url + '\n'
     print(urln)    
-    # with open("./links/skr", "w") as f:
-    #     f.write(base64.b64encode(skr.encode()).decode())
-    # message = '#ss ' + '#订阅' + '\n' + datetime.now().strftime("%Y年%m月%d日%H:%M:%S") + '\n' + 'skr订阅每天自动更新：' + '\n' + 'https://raw.githubusercontent.com/mfbpn/TrojanLinks/master/links/skr'
+    with open("./links/sd", "w") as f:
+        f.write(base64.b64encode(urln.encode()).decode())
+    # message = '#vless ' + '#订阅' + '\n' + datetime.now().strftime("%Y年%m月%d日%H:%M:%S") + '\n' + 'sd订阅每天自动更新：' + '\n' + 'https://raw.githubusercontent.com/mfbpn/sublink/master/links/sd'
     # send_message(os.environ['chat_id'], message, os.environ['bot_token'])
     # 输出节点总数(中文)
-    print(f"共{len(nodes)}个节点")
+    # print(f"共{len(nodes)}个节点")
 
 if __name__ == "__main__":
     get_proxy_url()
