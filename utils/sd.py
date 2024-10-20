@@ -134,7 +134,7 @@ def get_proxy_url():
 
     # 输出所有解密后的URL
     for url in urls:
-        urln += url + '\n'
+        urln += url.replace("InBzIjoiMSI", "InBzIjoi8J2ZqfCdmZxA8J2ZovCdmZvwnZmX8J2ZpfCdmaMi") + '\n'
     print(urln)    
     with open("./links/sd", "w") as f:
         f.write(base64.b64encode(urln.encode()).decode())
