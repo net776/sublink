@@ -53,16 +53,16 @@ def prepare_headers(session, device_uuid):
 
 # 获取VPN节点列表
 def lines_list(session, device_uuid):
-    # url = "http://api.saidun.biz/vpn/lines_list"
-    url = "http://api.saidun666.com/vpn/lines_list"
+    url = "http://api.saidun.biz/vpn/lines_list"
+    # url = "http://api.saidun666.com/vpn/lines_list"
     headers = prepare_headers(session, device_uuid)
     response = session.post(url, data={}, headers=headers)
     return response.text
 
 # 获取VPN节点协议
 def node_protocol(session, device_uuid, code):
-    # url = "http://api.saidun.biz/vpn/node_protocol"
-    url = "http://api.saidun666.com/vpn/node_protocol"
+    url = "http://api.saidun.biz/vpn/node_protocol"
+    # url = "http://api.saidun666.com/vpn/node_protocol"
     data = {
         "code": code
     }
@@ -135,8 +135,8 @@ def get_proxy_url():
     # 输出所有解密后的URL
     for url in urls:
         # urln += url.replace("InBzIjoiMSI", "InBzIjoi8J2ZqfCdmZxA8J2ZovCdmZvwnZmX8J2ZpfCdmaMi") + '\n'
-        urln += url + '\n'
-    print(urln.replace("InBzIjoiMSI", "InBzIjoi8J2ZqfCdmZxA8J2ZovCdmZvwnZmX8J2ZpfCdmaMi"))    
+        urln += url + ' @𝙢𝙛𝙗𝙥𝙣\n'
+    print(urln)    
     with open("./links/sd", "w") as f:
         f.write(base64.b64encode(urln.encode()).decode())
     # message = '#vless ' + '#订阅' + '\n' + datetime.now().strftime("%Y年%m月%d日%H:%M:%S") + '\n' + 'sd订阅每天自动更新：' + '\n' + 'https://raw.githubusercontent.com/mfbpn/sublink/master/links/sd'
