@@ -131,7 +131,8 @@ def get_proxy_url():
 
     # 输出所有解密后的URL
     for url in urls:
-        print(url)
+        urln += url + '\n'
+    print(urln)    
     # with open("./links/skr", "w") as f:
     #     f.write(base64.b64encode(skr.encode()).decode())
     # message = '#ss ' + '#订阅' + '\n' + datetime.now().strftime("%Y年%m月%d日%H:%M:%S") + '\n' + 'skr订阅每天自动更新：' + '\n' + 'https://raw.githubusercontent.com/mfbpn/TrojanLinks/master/links/skr'
