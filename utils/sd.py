@@ -53,16 +53,16 @@ def prepare_headers(session, device_uuid):
 
 # 获取VPN节点列表
 def lines_list(session, device_uuid):
-    # url = "http://api.saidun.biz/vpn/lines_list"
-    url = "http://api.saidun666.com/vpn/lines_list"
+    url = "http://api.saidun.biz/vpn/lines_list"
+    # url = "http://api.saidun666.com/vpn/lines_list"
     headers = prepare_headers(session, device_uuid)
     response = session.post(url, data={}, headers=headers)
     return response.text
 
 # 获取VPN节点协议
 def node_protocol(session, device_uuid, code):
-    # url = "http://api.saidun.biz/vpn/node_protocol"
-    url = "http://api.saidun666.com/vpn/node_protocol"
+    url = "http://api.saidun.biz/vpn/node_protocol"
+    # url = "http://api.saidun666.com/vpn/node_protocol"
     data = {
         "code": code
     }
