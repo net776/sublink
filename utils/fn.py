@@ -68,7 +68,7 @@ headers = {
 url1 = os.environ['fn_url']
 url2 = os.environ['fn_url2']
 url3 = os.environ['fn_url3']
-Trojan = ''
+
 def login(serial):
     try:
         params = prepare_params({
@@ -124,6 +124,7 @@ def node_detail(serial, token, node_id):
     # send_message(os.environ['chat_id'], message, os.environ['bot_token'])
 
 if __name__ == "__main__":
+    Trojan = ''
     serial = gen_serial_num()
     token = login(serial)
     if token:
