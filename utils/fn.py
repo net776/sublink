@@ -68,7 +68,7 @@ headers = {
 url1 = os.environ['fn_url']
 url2 = os.environ['fn_url2']
 url3 = os.environ['fn_url3']
-
+Trojan = ''
 def login(serial):
     try:
         params = prepare_params({
@@ -98,6 +98,7 @@ def node_list(serial, token):
         print(f'获取节点列表失败：{e}')
 
 def node_detail(serial, token, node_id):
+    global Trojan
     try:
         t = timestamp()
         rid = gen_req_id()
@@ -117,6 +118,7 @@ def node_detail(serial, token, node_id):
         # print(trojan)
     except Exception as exc:
                 print(f'节点生成异常: {exc}')
+    
     Trojan += trojan + '\n'
     with open("./links/fn", "w") as f:
         f.write(base64.b64encode(Trojan.encode()).decode())
@@ -124,7 +126,6 @@ def node_detail(serial, token, node_id):
     # send_message(os.environ['chat_id'], message, os.environ['bot_token'])
 
 if __name__ == "__main__":
-    Trojan = ''
     serial = gen_serial_num()
     token = login(serial)
     if token:
