@@ -118,7 +118,7 @@ def node_detail(serial, token, node_id):
         trojan = f'trojan://{info[3]}@{info[1]}:{info[2]}?security=tls&type=tcp&headerType=none&allowInsecure=1#{quote(data.get("name"))}'
     except Exception as exc:
                 print(f'节点生成异常: {exc}')
-    Trojan += trojan + ' %40%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD\n'
+    Trojan += trojan + ' %40mfbpn\n'
     
 if __name__ == "__main__":
     serial = gen_serial_num()
