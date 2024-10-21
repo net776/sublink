@@ -118,9 +118,10 @@ def node_detail(serial, token, node_id):
         print(f'获取节点信息失败：{e}')
 
 if __name__ == "__main__":
-serial = gen_serial_num()
-token = login(serial)
-if token:
-    nodes = node_list(serial, token)
-    for node in nodes:
-        node_detail(serial, token, node.get('id'))
+    serial = gen_serial_num()
+    token = login(serial)
+    if token:
+        nodes = node_list(serial, token)
+        for node in nodes:
+            node_detail(serial, token, node.get('id'))
+
