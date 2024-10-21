@@ -37,8 +37,8 @@ jobs:
         fn_url: ${{secrets.fn_url}}
         fn_url2: ${{secrets.fn_url2}}
         fn_url3: ${{secrets.fn_url3}}
-        sp_k: ${{secrets.sp_k}}
-        sp_l: ${{secrets.sp_l}}
+        bot_token: ${{secrets.bot_token}}
+        chat_id: ${{secrets.chat_id}}
       run: |
         python ./utils/fn.py
     - name: Commit
