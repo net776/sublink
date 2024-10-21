@@ -97,6 +97,7 @@ def node_list(serial, token):
         print(f'获取节点列表失败：{e}')
 
 def node_detail(serial, token, node_id):
+    Trojan = ''
     try:
         t = timestamp()
         rid = gen_req_id()
