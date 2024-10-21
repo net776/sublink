@@ -4,9 +4,11 @@ By: unorz
 import time
 import hashlib
 import base64
+import os
 import pyaes
 import requests
 from urllib.parse import quote
+from Telegram_bot import send_message
 
 def get_request_key(t, i, k):
     ts = str(t)
@@ -63,7 +65,9 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (Linux; U; Android 7.1.2; zh-cn; V1936A Build/N2G47O) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
     'Content-Type': 'application/x-www-form-urlencoded'
 }
-
+url1 = os.environ['fn_url']
+url2 = os.environ['fn_url2']
+url13 = os.environ['fn_url3']
 def login(serial):
     try:
         params = prepare_params({
@@ -71,7 +75,7 @@ def login(serial):
             'requestTimestamp': timestamp(),
             'serialNumber': serial
         })
-        response = session.post('https://api.go01.top/proxy/user/auto/login', headers=headers, data=params)
+        response = session.post(url1, headers=headers, data=params)
         response.raise_for_status()
         return response.json().get('data').get('token')
     except Exception as e:
@@ -86,7 +90,7 @@ def node_list(serial, token):
             'token': token,
             'vipType': 'vip'
         })
-        response = session.post('https://api.go01.top/proxy/user/fetch/node/list', headers=headers, data=params)
+        response = session.post(url2, headers=headers, data=params)
         response.raise_for_status()
         return response.json().get('data')
     except Exception as e:
@@ -103,7 +107,7 @@ def node_detail(serial, token, node_id):
             'token': token,
             'nodeId': node_id
         })
-        response = session.post('https://api.go01.top/proxy/user/fetch/node/detail', headers=headers, data=params)
+        response = session.post(url3, headers=headers, data=params)
         response.raise_for_status()
         data = response.json().get('data')
         key = get_decrypt_key(t, rid, token)
@@ -113,6 +117,7 @@ def node_detail(serial, token, node_id):
     except Exception as e:
         print(f'获取节点信息失败：{e}')
 
+if __name__ == "__main__":
 serial = gen_serial_num()
 token = login(serial)
 if token:
