@@ -119,7 +119,7 @@ def node_detail(serial, token, node_id):
     except Exception as exc:
                 print(f'节点生成异常: {exc}')
     
-    Trojan += trojan + '\n'
+    Trojan += trojan + ' @𝙢𝙛𝙗𝙥𝙣\n'
     with open("./links/fn", "w") as f:
         f.write(base64.b64encode(Trojan.encode()).decode())
     # message = '#vless ' + '#订阅' + '\n' + datetime.now().strftime("%Y年%m月%d日%H:%M:%S") + '\n' + 'sd订阅每天自动更新：' + '\n' + 'https://raw.githubusercontent.com/mfbpn/sublink/master/links/sd'
