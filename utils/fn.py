@@ -116,7 +116,7 @@ def node_detail(serial, token, node_id):
         trojan = f'trojan://{info[3]}@{info[1]}:{info[2]}?security=tls&type=tcp&headerType=none&allowInsecure=1#{quote(data.get("name"))}'
         Trojan += trojan + '\n'
         # print(trojan)
-    print(Trojan)
+    # print(Trojan)
     with open("./links/fn", "w") as f:
     f.write(base64.b64encode(Trojan.encode()).decode())
     # message = '#vless ' + '#订阅' + '\n' + datetime.now().strftime("%Y年%m月%d日%H:%M:%S") + '\n' + 'sd订阅每天自动更新：' + '\n' + 'https://raw.githubusercontent.com/mfbpn/sublink/master/links/sd'
