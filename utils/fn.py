@@ -68,6 +68,7 @@ headers = {
 url1 = os.environ['fn_url']
 url2 = os.environ['fn_url2']
 url3 = os.environ['fn_url3']
+Trojan = ''
 def login(serial):
     try:
         params = prepare_params({
@@ -97,7 +98,6 @@ def node_list(serial, token):
         print(f'获取节点列表失败：{e}')
 
 def node_detail(serial, token, node_id):
-    Trojan = ''
     try:
         t = timestamp()
         rid = gen_req_id()
@@ -114,10 +114,10 @@ def node_detail(serial, token, node_id):
         key = get_decrypt_key(t, rid, token)
         info = aes_decrypt(key, data.get('content')).split(',')
         trojan = f'trojan://{info[3]}@{info[1]}:{info[2]}?security=tls&type=tcp&headerType=none&allowInsecure=1#{quote(data.get("name"))}'
-        Trojan += trojan + '\n'
         # print(trojan)
     except Exception as exc:
                 print(f'节点生成异常: {exc}')
+    Trojan += trojan + '\n'
     print(Trojan)
     with open("./links/fn", "w") as f:
         f.write(base64.b64encode(Trojan.encode()).decode())
