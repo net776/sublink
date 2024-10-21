@@ -67,7 +67,7 @@ headers = {
 }
 url1 = os.environ['fn_url']
 url2 = os.environ['fn_url2']
-url13 = os.environ['fn_url3']
+url3 = os.environ['fn_url3']
 def login(serial):
     try:
         params = prepare_params({
