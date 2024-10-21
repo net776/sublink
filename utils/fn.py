@@ -115,16 +115,10 @@ def node_detail(serial, token, node_id):
         key = get_decrypt_key(t, rid, token)
         info = aes_decrypt(key, data.get('content')).split(',')
         trojan = f'trojan://{info[3]}@{info[1]}:{info[2]}?security=tls&type=tcp&headerType=none&allowInsecure=1#{quote(data.get("name"))}'
-        # print(trojan)
     except Exception as exc:
                 print(f'节点生成异常: {exc}')
+    Trojan += trojan + ' %40%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD\n'
     
-    Trojan += trojan + ' @𝙢𝙛𝙗𝙥𝙣\n'
-    with open("./links/fn", "w") as f:
-        f.write(base64.b64encode(Trojan.encode()).decode())
-    # message = '#vless ' + '#订阅' + '\n' + datetime.now().strftime("%Y年%m月%d日%H:%M:%S") + '\n' + 'sd订阅每天自动更新：' + '\n' + 'https://raw.githubusercontent.com/mfbpn/sublink/master/links/sd'
-    # send_message(os.environ['chat_id'], message, os.environ['bot_token'])
-
 if __name__ == "__main__":
     serial = gen_serial_num()
     token = login(serial)
@@ -133,4 +127,7 @@ if __name__ == "__main__":
         for node in nodes:
             node_detail(serial, token, node.get('id'))
     print(Trojan)
-
+    with open("./links/fn", "w") as f:
+        f.write(base64.b64encode(Trojan.encode()).decode())
+    message = '#Trojan ' + '#订阅' + '\n' + datetime.now().strftime("%Y年%m月%d日%H:%M:%S") + '\n' + 'fn订阅每天自动更新：' + '\n' + 'https://raw.githubusercontent.com/mfbpn/sublink/master/links/fn'
+    send_message(os.environ['chat_id'], message, os.environ['bot_token'])
