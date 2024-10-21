@@ -113,7 +113,13 @@ def node_detail(serial, token, node_id):
         key = get_decrypt_key(t, rid, token)
         info = aes_decrypt(key, data.get('content')).split(',')
         trojan = f'trojan://{info[3]}@{info[1]}:{info[2]}?security=tls&type=tcp&headerType=none&allowInsecure=1#{quote(data.get("name"))}'
-        print(trojan)
+        Trojan += trojan + '\n'
+        # print(trojan)
+    print(Trojan)
+    with open("./links/fn", "w") as f:
+    f.write(base64.b64encode(Trojan.encode()).decode())
+    # message = '#vless ' + '#订阅' + '\n' + datetime.now().strftime("%Y年%m月%d日%H:%M:%S") + '\n' + 'sd订阅每天自动更新：' + '\n' + 'https://raw.githubusercontent.com/mfbpn/sublink/master/links/sd'
+    # send_message(os.environ['chat_id'], message, os.environ['bot_token'])
     except Exception as e:
         print(f'获取节点信息失败：{e}')
 
