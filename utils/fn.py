@@ -51,7 +51,7 @@ def aes_decrypt(key, text):
     return plainbytes.decode('utf-8')
 
 def prepare_params(params):
-    params['clientModel'] = random_client_model()
+    params['clientModel'] = V1964P
     params['clientType'] = 'Android'
     params['promoteChannel'] = 'S100'
     params['rankVersion'] = '10'
