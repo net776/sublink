@@ -10,7 +10,14 @@ import requests
 from urllib.parse import quote
 from Telegram_bot import send_message
 from datetime import datetime
+import random
 
+# 生成随机格式的 clientModel 值
+def random_client_model():
+    prefix = 'V'
+    random_digits = ''.join(random.choices(string.digits, k=4))  # 生成4个随机数字
+    random_letter = random.choice(string.ascii_uppercase)  # 生成一个随机字母
+    return prefix + random_digits + random_letter
 def get_request_key(t, i, k):
     ts = str(t)
     r = [5,11,11,8,27,12,9,21] if t & 1 != 0 else [16,8,10,12,26,11,2,18]
@@ -44,7 +51,7 @@ def aes_decrypt(key, text):
     return plainbytes.decode('utf-8')
 
 def prepare_params(params):
-    params['clientModel'] = 'V1936P'
+    params['clientModel'] = random_client_model()
     params['clientType'] = 'Android'
     params['promoteChannel'] = 'S100'
     params['rankVersion'] = '10'
