@@ -130,6 +130,7 @@ if __name__ == "__main__":
             node_detail(serial, token, node.get('id'))
     print(Trojan)
     with open("./links/fn", "w") as f:
-        f.write(base64.b64encode(Trojan.encode()).decode())
+        #f.write(base64.b64encode(Trojan.encode()).decode())
+        f.write(Trojan)
     message = '#Trojan ' + '#订阅' + '\n' + datetime.now().strftime("%Y年%m月%d日%H:%M:%S") + '\n' + 'fn订阅每天自动更新：' + '\n' + 'https://raw.githubusercontent.com/mfbpn/sublink/master/links/fn'
     send_message(os.environ['chat_id'], message, os.environ['bot_token'])
