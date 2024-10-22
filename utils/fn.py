@@ -123,6 +123,7 @@ def node_detail(serial, token, node_id):
 if __name__ == "__main__":
     serial = gen_serial_num()
     token = login(serial)
+    print(token)
     if token:
         nodes = node_list(serial, token)
         for node in nodes:
