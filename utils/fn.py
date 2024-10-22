@@ -10,6 +10,7 @@ import requests
 from urllib.parse import quote
 from Telegram_bot import send_message
 from datetime import datetime
+import string
 import random
 
 # 生成随机格式的 clientModel 值
