@@ -44,7 +44,7 @@ def aes_decrypt(key, text):
     return plainbytes.decode('utf-8')
 
 def prepare_params(params):
-    params['clientModel'] = 'V1936A'
+    params['clientModel'] = 'V1936P'
     params['clientType'] = 'Android'
     params['promoteChannel'] = 'S100'
     params['rankVersion'] = '10'
