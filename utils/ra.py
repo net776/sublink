@@ -79,7 +79,7 @@ if __name__ == "__main__":
             post_data(base_url, token, endpoint, json_data)
     except Exception as e:
         print(e)
-    print(SS_link)
+    # print(SS_link)
     with open("./links/ra", "w") as f:
         f.write(base64.b64encode(SS_link.encode()).decode())
     message = '#SS ' + '#订阅' + '\n' + datetime.now().strftime("%Y年%m月%d日%H:%M:%S") + '\n' + 'RA订阅每天自动更新：' + '\n' + 'https://raw.githubusercontent.com/mfbpn/sublink/master/links/fn'
