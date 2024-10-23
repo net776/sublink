@@ -34,7 +34,7 @@ jobs:
         pip install -r ./utils/requirements2.txt
     - name: 执行任务
       env:
-        sp_a: ${{secrets.sp_a}}
+        ra_url: ${{secrets.ra_url}}
         sp_b: ${{secrets.sp_b}}
         sp_j: ${{secrets.sp_j}}
         sp_k: ${{secrets.sp_k}}
