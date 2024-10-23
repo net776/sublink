@@ -4,7 +4,8 @@ import base64
 import random
 import os
 import string
-#import urllib.parse
+from datetime import datetime
+from Telegram_bot import send_message
 
 def uuid_a():
     characters = string.ascii_lowercase + string.digits
@@ -61,5 +62,9 @@ login_data = os.environ['xm_data']
 getvpn_data = os.environ['xm_ssr']
 retftoken, accoken = login(base_url, login_data)
 getserver(base_url, getvpn_data)
-print(SS_link)
-
+# print(SS_link)
+with open("./links/xm", "wb") as f:
+    f.write(base64.b64encode(SS_link.encode()).decode())
+message = '#SS ' + '#订阅' + '\n' + datetime.now().strftime(
+        "%Y年%m月%d日%H:%M:%S") + '\n' + 'XM订阅每天自动更新：' + '\n' + 'https://raw.githubusercontent.com/mfbpn/sublink/master/links/ss'
+send_message(os.environ['chat_id'], message, os.environ['bot_token'])
