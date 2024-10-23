@@ -4,6 +4,8 @@ import base64
 import random
 import string
 import urllib.parse
+import os
+from Telegram_bot import send_message
 
 def uuid_a():
     characters = string.ascii_lowercase + string.digits
@@ -60,7 +62,6 @@ def post_data(base_url, token, endpoint, json_data):
         # print(ss_link)
     
     print(SS_link)
-
 
 pws = uuid_a()
 email = f"{pws}@163.com"
