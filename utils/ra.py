@@ -30,8 +30,8 @@ def register(base_url, register):
     return token
 
 def post_data(base_url, token, endpoint, json_data):
-    # global SS_link
-    SS_link = ''
+    global SS_link
+    
     if token is None:
         print("Failed to login")
         return
@@ -61,17 +61,24 @@ def post_data(base_url, token, endpoint, json_data):
         SS_link += ss_link + '\n'
         # print(ss_link)
     
+    
+if __name__ == "__main__":
+    SS_link = ''
+    pws = uuid_a()
+    email = f"{pws}@163.com"
+    base_url = "https://api.radial.velolink.us"
+    register_data = {'email': email, 'password': pws, 'invite': ""}
+    token = register(base_url, register_data)
+    try:
+        for i in range(1,7):
+            json_data = {"region": i}
+            endpoint = "/user/node/credential"
+            post_data(base_url, token, endpoint, json_data)
+    except Exception as e:
+        print(e)
     print(SS_link)
+    with open("./links/ra", "w") as f:
+        f.write(base64.b64encode(SS_link.encode()).decode())
+    message = '#SS ' + '#订阅' + '\n' + datetime.now().strftime("%Y年%m月%d日%H:%M:%S") + '\n' + 'RA订阅每天自动更新：' + '\n' + 'https://raw.githubusercontent.com/mfbpn/sublink/master/links/fn'
+    send_message(os.environ['chat_id'], message, os.environ['bot_token'])
 
-pws = uuid_a()
-email = f"{pws}@163.com"
-base_url = "https://api.radial.velolink.us"
-register_data = {'email': email, 'password': pws, 'invite': ""}
-token = register(base_url, register_data)
-try:
-    for i in range(1,7):
-        json_data = {"region": i}
-        endpoint = "/user/node/credential"
-        post_data(base_url, token, endpoint, json_data)
-except Exception as e:
-    print(e)
