@@ -53,7 +53,7 @@ def getserver(base_url, getvpn_data):
             port = item['server_port'])
         ss_link_unencoded = "ss://" + base64.urlsafe_b64encode(link_format.encode()).decode()
         ss_link = ss_link_unencoded + "#" + ''.join(server_name)
-        SS_link += ss_link + '\n'
+        SS_link += ss_link + ' @𝙢𝙛𝙗𝙥𝙣\n'
 
 SS_link = ''
 
