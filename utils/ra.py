@@ -49,19 +49,20 @@ def post_data(base_url, token, endpoint, json_data):
         'content-type': 'application/json',
     }
     response = requests.post(url, data=json.dumps(json_data), headers=headers)
-    for item in response.json()['data']:
-        node = item['node']
-        attributes = item['attributes']
-        link_format = "{method}:{password}@{hostname}:{port}".format(
-            method=attributes['method'],
-            password=attributes['passwd'],
-            # hostname=node['address'],
-            hostname='tg_mfbpn05.52cloud.us.kg',
-            port=attributes['port'])
-        ss_link_unencoded = "ss://" + base64.urlsafe_b64encode(link_format.encode()).decode()
-        ss_link = ss_link_unencoded + "#" + urllib.parse.quote(node['name'])
-        SS_link += ss_link + ' @𝙢𝙛𝙗𝙥𝙣\n'
-        # print(ss_link)
+    if response:
+        for item in response.json()['data']:
+            node = item['node']
+            attributes = item['attributes']
+            link_format = "{method}:{password}@{hostname}:{port}".format(
+                method=attributes['method'],
+                password=attributes['passwd'],
+                # hostname=node['address'],
+                hostname='tg_mfbpn05.52cloud.us.kg',
+                port=attributes['port'])
+            ss_link_unencoded = "ss://" + base64.urlsafe_b64encode(link_format.encode()).decode()
+            ss_link = ss_link_unencoded + "#" + urllib.parse.quote(node['name'])
+            SS_link += ss_link + ' @𝙢𝙛𝙗𝙥𝙣\n'
+            # print(ss_link)
     
     
 if __name__ == "__main__":
@@ -72,8 +73,8 @@ if __name__ == "__main__":
     register_data = {'email': email, 'password': pws, 'invite': ""}
     token = register(base_url, register_data)
     try:
-        for i in range(1,9):
-            json_data = {"region": 11}
+        for i in range(1,11):
+            json_data = {"region": i}
             endpoint = "/user/node/credential"
             post_data(base_url, token, endpoint, json_data)
     except Exception as e:
