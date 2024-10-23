@@ -73,7 +73,7 @@ if __name__ == "__main__":
     token = register(base_url, register_data)
     try:
         for i in range(1,9):
-            json_data = {"region": i}
+            json_data = {"region": 11}
             endpoint = "/user/node/credential"
             post_data(base_url, token, endpoint, json_data)
     except Exception as e:
