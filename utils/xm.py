@@ -64,7 +64,7 @@ retftoken, accoken = login(base_url, login_data)
 getserver(base_url, getvpn_data)
 # print(SS_link)
 with open("./links/xm", "wb") as f:
-    f.write(base64.b64encode(SS_link.encode()).decode())
+    f.write(base64.b64encode(SS_link))
 message = '#SS ' + '#订阅' + '\n' + datetime.now().strftime(
         "%Y年%m月%d日%H:%M:%S") + '\n' + 'XM订阅每天自动更新：' + '\n' + 'https://raw.githubusercontent.com/mfbpn/sublink/master/links/ss'
 send_message(os.environ['chat_id'], message, os.environ['bot_token'])
