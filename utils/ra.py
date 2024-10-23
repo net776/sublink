@@ -68,7 +68,7 @@ if __name__ == "__main__":
     SS_link = ''
     pws = uuid_a()
     email = f"{pws}@163.com"
-    base_url = "https://api.radial.velolink.us"
+    base_url = os.environ['ra_url']
     register_data = {'email': email, 'password': pws, 'invite': ""}
     token = register(base_url, register_data)
     try:
