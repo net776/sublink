@@ -55,11 +55,12 @@ def post_data(base_url, token, endpoint, json_data):
         link_format = "{method}:{password}@{hostname}:{port}".format(
             method=attributes['method'],
             password=attributes['passwd'],
-            hostname=node['address'],
+            # hostname=node['address'],
+            hostname='tg_mfbpn05.52cloud.us.kg',
             port=attributes['port'])
         ss_link_unencoded = "ss://" + base64.urlsafe_b64encode(link_format.encode()).decode()
         ss_link = ss_link_unencoded + "#" + urllib.parse.quote(node['name'])
-        SS_link += ss_link + '\n'
+        SS_link += ss_link + ' @𝙢𝙛𝙗𝙥𝙣\n'
         # print(ss_link)
     
     
